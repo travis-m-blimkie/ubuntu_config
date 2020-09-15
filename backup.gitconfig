@@ -1,0 +1,16 @@
+[user]
+	email = travis.m.blimkie@gmail.com
+	name = Travis
+[color]
+	ui = auto
+[credential]
+	helper = store
+[alias]
+	l = log --graph -n 5 --decorate --oneline
+	c = commit -m
+	s = status
+	b = branch
+	ac = !git add --all && git commit -m
+	fs = !git fetch && git status
+	pl = pull
+	ps = push

@@ -43,8 +43,7 @@ esac
 # uncomment for a colored prompt, if the terminal has the capability; turned
 # off by default to not distract the user: the focus in a terminal window
 # should be on the output of commands, not on the prompt
-# Default colour for prompt user/host is 01;32m
-force_color_prompt=yes
+#force_color_prompt=yes
 
 if [ -n "$force_color_prompt" ]; then
     if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
@@ -58,8 +57,7 @@ if [ -n "$force_color_prompt" ]; then
 fi
 
 if [ "$color_prompt" = yes ]; then
-    #PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
-    PS1='${debian_chroot:+($debian_chroot)}\w\[\033[1;34m\]\$\[\033[00m\] '
+    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
 else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi
@@ -87,9 +85,9 @@ if [ -x /usr/bin/dircolors ]; then
 fi
 
 # colored GCC warnings and errors
-export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
+#export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
-# Aliases for 'ls'
+# some more ls aliases
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
@@ -119,17 +117,33 @@ if ! shopt -oq posix; then
 fi
 
 
-
 ### Custom aliases
 
 # ls alias
-alias lf='ls -F -1 --group-directories-first'
+alias lf='ls -hF -1 --group-directories-first'
 
-# Alias for tree
-alias tl='tree --dirsfirst -L 2'
+# tree alias
+alias tl='tree --noreport --dirsfirst -L 2'
 
 # Alias for updating and upgrading in one command
 alias updoot='sudo apt update && sudo apt upgrade'
 
 # Alias for rsyncs command that shows progress
 alias copy='rsync -ahz --progress'
+
+# Aliases for work
+alias commute='cd ~/Documents/Work/'
+alias merlin_connect='source ~/mybin/merlin_connect.sh'
+alias vpn_connect='source ~/mybin/vpn_connect.sh'
+
+# Check if reboot is needed after updates
+alias check_restart='source ~/mybin/check_restart.sh'
+
+# Custom PS1
+PS1='${debian_chroot:+($debian_chroot)}\w\[\033[1;34m\] ->\[\033[00m\] '
+
+#PATH="/home/travis/perl5/bin${PATH:+:${PATH}}"; export PATH;
+#PERL5LIB="/home/travis/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
+#PERL_LOCAL_LIB_ROOT="/home/travis/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
+#PERL_MB_OPT="--install_base \"/home/travis/perl5\""; export PERL_MB_OPT;
+#PERL_MM_OPT="INSTALL_BASE=/home/travis/perl5"; export PERL_MM_OPT;

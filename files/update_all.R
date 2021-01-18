@@ -8,15 +8,15 @@
 #'
 update_all <- function() {
 
-  message("Running 'update.packages(ask = FALSE)'...")
-  suppressWarnings(suppressMessages(update.packages(ask = FALSE)))
+  message("Running 'update.packages()'...")
+  suppressWarnings(suppressMessages(update.packages()))
   message(crayon::green("Done!\n"))
 
-  message("Running 'devtools::update_packages(upgrade = TRUE)'...")
-  devtools::update_packages(upgrade = TRUE)
+  message("Running 'devtools::update_packages()'...")
+  devtools::update_packages()
   message(crayon::green("Done!\n"))
 
-  message("Running 'BiocManager::install(ask = FALSE)'...")
-  suppressMessages(BiocManager::install(ask = FALSE))
+  message("Running 'BiocManager::install()'...")
+  suppressMessages(BiocManager::install())
   message(crayon::green("Done!"))
 }

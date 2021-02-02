@@ -1,10 +1,5 @@
-[user]
-	email = travis.m.blimkie@gmail.com
-	name = Travis
 [color]
 	ui = auto
-[credential]
-	helper = store
 [alias]
 	l = log --graph -n 5 --decorate --oneline
 	c = commit -m
